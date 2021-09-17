@@ -1,20 +1,27 @@
+* {
+	box-sizing: border-box;
+}
+
 body{
-    background-color: #353b48;
+    background-color: #fff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
 
+    transition: background 0.2s linear;
 }
 
+/* Loading */
 .loading{
     display: flex;
-    
+    margin-bottom: 20px;
 }
 
 .circle{
-    background-color: #fff;
+    background-color: black;
     border-radius: 50%;
 
     margin: 3px;
@@ -40,4 +47,64 @@ body{
     50%{
         transform: translateY(-10px);
     }
+}
+
+/* Switch Mode */
+body.dark {
+	background: #292C35;
+}
+
+body.dark .circle{
+    background-color: #fff;
+}
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox:checked + .label .ball{
+    transform: translateX(24px);
+}
+
+.label{
+    background-color: #111;
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 5px;
+    border-radius: 50px;
+    
+    height: 26px;
+    width: 50px;
+
+    cursor: pointer;
+
+}
+
+.ball{
+    background-color: #fff;
+    position: absolute;
+
+    border-radius: 50%;
+    
+    top: 2px;
+    left: 2px;
+    
+    width: 22px;
+    height: 22px;
+
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.moon{
+    color: #f1c40f;
+}
+
+.sun{
+    color: #f39c12;
 }
